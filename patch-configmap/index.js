@@ -9,8 +9,10 @@ const patch = new k8s.core.v1.ConfigMapPatch('foo-patch', {
     metadata: {
         name: 'foo',
         namespace: 'default',
+        // annotations: { 'pulumi.com/patchForce': 'true' }, // forces an overwrite
     },
     data: {
-        'boo': 'baz',
+        foo: 'bar',
+        // 'foo': 'baz', // this would overwrite the original data field
     },
 }, { provider });
