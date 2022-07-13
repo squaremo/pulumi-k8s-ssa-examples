@@ -1,0 +1,21 @@
+name: namespace-meta
+runtime: yaml
+description: A minimal Kubernetes Pulumi YAML program
+
+variables:
+  namespace: default
+  newLabels: { color: 'blue' }
+
+resources:
+  provider:
+    type: pulumi:providers:kubernetes
+    properties:
+      enableServerSideApply: true
+  ns-patch:
+    type: kubernetes:core/v1:NamespacePatch
+    properties:
+      metadata:
+        name: ${namespace}
+        labels: ${newLabels}
+    options:
+      provider: ${provider}

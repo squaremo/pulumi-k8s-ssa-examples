@@ -14,3 +14,8 @@ program patches the config with another value.
    - you can use the annotation on the patch `pulumi.com/patchForce: true` to make it overwrite the other field
  - destroying the stack removes the extra field
    - if you forced an overwrite, the data key is removed
+
+### namespace-meta
+
+This patches the default namespace with some additional labels. Again, about as simple as you can get.
+
