@@ -19,3 +19,10 @@ program patches the config with another value.
 
 This patches the default namespace with some additional labels. Again, about as simple as you can get.
 
+### ensure-configmap
+
+This uses server-side apply to "upsert" a ConfigMap -- that is, to either create or overwrite a
+particular ConfigMap, depending on whether it already exists or not.
+
+Either create the original with `kubectl apply -f original.yaml` then run `pulumi up`, or skip the
+first step.
